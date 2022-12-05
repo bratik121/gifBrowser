@@ -1,0 +1,176 @@
+/** Select styles*/
+body {
+	background-color: rgb(34 40 49);
+	background-image: url("../assets/bg-pattern-white-op-1.png");
+	background-size: contain;
+}
+.select-box {
+	width: 130px;
+}
+
+.selected::after {
+	content: "";
+	background: url("../assets/arrow-white.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 36px;
+	height: 36px;
+	top: 20%;
+	right: 0;
+
+	position: absolute;
+
+	transition: all 0.4s;
+}
+
+.option-container.active {
+	max-height: 240px;
+	opacity: 1;
+}
+
+.option-container {
+	max-height: 0;
+	opacity: 0;
+}
+
+.option-container::-webkit-scrollbar {
+	width: 8px;
+	background-color: rgb(0, 21, 40);
+	border-radius: 0 8px 8px 0;
+}
+
+.option-container::-webkit-scrollbar-thumb {
+	background-color: rgb(0, 73, 132);
+	border-radius: 0 8px 8px 0;
+}
+
+.selected.active::after {
+	transform: rotateX(180deg);
+}
+
+/**Boton ripples**/
+
+.ripples {
+	position: absolute;
+	background: #fff;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	border-radius: 50%;
+	animation: ripple 1s linear infinite;
+}
+
+/*? Tittle*/
+
+.tittle {
+	background: url("../assets/bg1.svg");
+	background-size: cover;
+}
+
+/*!Browser input*/
+.browser__input {
+	background: none;
+	color: #fff;
+	font-size: 20px;
+	border-bottom: 2px solid #fff;
+	outline: none;
+	transition: ease all 0.4s;
+}
+
+.browser__input:focus + .input-decoration {
+	transform: translateX(0);
+}
+
+.input-decoration {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	transform: translateX(-100%);
+	pointer-events: none;
+	width: 100%;
+	border-bottom: 2px solid rgb(0, 66, 128);
+	transition: ease all 0.4s;
+}
+/**Overlays */
+.img-overlay > * {
+	transform: translateY(20px);
+	transition: ease all 0.2s;
+}
+.img-overlay:hover > * {
+	transform: translateY(0px);
+}
+.viewLink {
+	background-image: url("../assets/eye-white.svg");
+	background-size: contain;
+	filter: opacity(85%);
+}
+
+.copyLink {
+	background-image: url("../assets/copylink-white.svg");
+	background-size: contain;
+	transform: rotate(135deg);
+	filter: opacity(95%);
+}
+.copyMessage::after {
+	content: "Copiado";
+	position: absolute;
+	padding: 8px 8px;
+	background-color: rgb(40, 41, 43);
+	border-radius: 8px;
+	transform: translate(-14px, -77px);
+	font-size: 13px;
+	display: none;
+}
+
+.copyMessage::before {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 10px solid rgb(40, 41, 43);
+	transform: translate(15px, -6px);
+	display: none;
+}
+
+.copyMessage.active::after,
+.copyMessage.active::before {
+	display: block;
+}
+/* ===== Keyframes ===== */
+@keyframes ripple {
+	0% {
+		width: 0px;
+		height: 0px;
+		opacity: 0.5;
+	}
+
+	100% {
+		width: 500px;
+		height: 500px;
+		opacity: 0;
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translate3d(0, 20px, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
