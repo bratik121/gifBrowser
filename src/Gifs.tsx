@@ -3,10 +3,10 @@ import { useState } from "react";
 import { notGif } from "./data/validations";
 
 function Gifs(props: any) {
+	const [active, setActive] = useState(false);
 	return (
 		<div className="gifs-container grid grid-cols-1 md:grid-cols-4 gap-5 ">
 			{props.gifList.map((gif: gif, index: number) => {
-				const [active, setActive] = useState(false);
 				return (
 					//img container
 					<div
