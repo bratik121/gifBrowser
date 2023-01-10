@@ -138,6 +138,25 @@ body {
 .copyMessage.active::before {
 	display: block;
 }
+
+/**Aside */
+
+.aside::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.categorie-item {
+	font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+	.categorie-item {
+		font-size: 1rem;
+	}
+}
+
 /* ===== Keyframes ===== */
 @keyframes ripple {
 	0% {

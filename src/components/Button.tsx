@@ -14,21 +14,19 @@ function Button(props: any) {
 		}, 1000);
 	};
 	return (
-		<div>
-			<button
-				className=" bg-gradient-to-r from-green-400 to-blue-500
-             text-white px-3 md:px-6 py-2 uppercase text-lg tracking-wider rounded-[40px] relative
-                overflow-hidden
+		<button
+			className=" bg-gradient-to-r from-green-400 to-blue-500 h-14
+             text-white px-3 md:px-6 py-2 uppercase text-lg tracking-wider relative
+                overflow-hidden top-0
 				z-10
              "
-				onClick={(e) => {
-					rippleEfect(e);
-					props.searchGif();
-				}}
-			>
-				{props.label}
-			</button>
-		</div>
+			onClick={(e) => {
+				rippleEfect(e);
+				props.searchGif();
+			}}
+		>
+			{props.label}
+		</button>
 	);
 }
 
