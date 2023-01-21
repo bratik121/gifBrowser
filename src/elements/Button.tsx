@@ -1,3 +1,5 @@
+import "./elements.css";
+import { FaSearch } from "react-icons/fa";
 function Button(props: any) {
 	const rippleEfect = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		let btn = e.target as HTMLButtonElement;
@@ -15,17 +17,13 @@ function Button(props: any) {
 	};
 	return (
 		<button
-			className=" bg-gradient-to-r from-green-400 to-blue-500 h-14
-             text-white px-3 md:px-6 py-2 uppercase text-lg tracking-wider relative
-                overflow-hidden top-0
-				z-10
-             "
+			className="Button px-3 md:px-6 py-2 md:-translate-x-3"
 			onClick={(e) => {
 				rippleEfect(e);
 				props.searchGif();
 			}}
 		>
-			{props.label}
+			<FaSearch />
 		</button>
 	);
 }

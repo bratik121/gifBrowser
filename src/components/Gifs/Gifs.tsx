@@ -1,6 +1,7 @@
-import { useRef, useEffect, Suspense, lazy } from "react";
-import gif from "./data/gifs";
-import Gif from "./components/Gif";
+import { useRef, useEffect } from "react";
+import "./gifs.css";
+import gif from "../../data/gifs";
+import Gif from "../../elements/Gif";
 import { motion } from "framer-motion";
 
 const container = {

@@ -1,0 +1,47 @@
+/**Overlays */
+.img-overlay > * {
+	transform: translateY(20px);
+	transition: ease all 0.2s;
+}
+.img-overlay:hover > * {
+	transform: translateY(0px);
+}
+.viewLink {
+	background-image: url("../../assets/eye-white.svg");
+	background-size: contain;
+	filter: opacity(85%);
+}
+
+.copyLink {
+	background-image: url("../../assets/copylink-white.svg");
+	background-size: contain;
+	transform: rotate(135deg);
+	filter: opacity(95%);
+}
+.copyMessage::after {
+	content: "Copiado";
+	position: absolute;
+	padding: 8px 8px;
+	background-color: rgb(40, 41, 43);
+	border-radius: 8px;
+	transform: translate(-14px, -77px);
+	font-size: 13px;
+	display: none;
+}
+
+.copyMessage::before {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 10px solid rgb(40, 41, 43);
+	transform: translate(15px, -6px);
+	display: none;
+}
+
+.copyMessage.active::after,
+.copyMessage.active::before {
+	display: block;
+}
