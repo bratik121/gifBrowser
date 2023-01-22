@@ -52,7 +52,7 @@ function App() {
 				<Aside categories={categories} setGifNameF={setGifNameF} />
 				<div className="main w-[85%] flex flex-col items-center ml-[15%] gap-8 pt-6">
 					<Browser setGifNameF={setGifNameF} />
-					<div className="w-full flex justify-center md:justify-start box-border md:pl-[10.5rem]">
+					<div className="w-[70%] flex justify-center md:justify-start box-border">
 						<h3 className="text-white text-3xl inline capitalize">{gifName}</h3>
 					</div>
 					{/* <Cgifs gifList={gifList} /> */}

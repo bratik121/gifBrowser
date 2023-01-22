@@ -25,7 +25,7 @@ const fetchGifs = async (api: string): Promise<gif[] | string> => {
 export const getCategories = async (categoriesSetter: Function) => {
 	let api = `https://g.tenor.com/v1/categories?key=LIVDSRZULELA`;
 	let categories: string[] = (await fetchCategories(api)) as string[];
-	let newCategories = categories.slice(0, 19).sort();
+	let newCategories = categories.slice(0, 25).sort();
 	categoriesSetter(newCategories);
 };
 

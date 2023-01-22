@@ -7,6 +7,7 @@ function Input(props: any) {
 				type="text"
 				required
 				className=""
+				id="input"
 				ref={props.refe}
 				onKeyUp={(e) => {
 					if (e.key === "Enter") {

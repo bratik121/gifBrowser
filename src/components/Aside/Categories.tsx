@@ -13,7 +13,7 @@ function Categories(props: any) {
 	};
 	return (
 		<motion.div
-			className="w-full flex flex-col 	px-5"
+			className="w-[60%] flex flex-col px-5 "
 			variants={categorieContaiener}
 			initial="hidden"
 			animate="show"

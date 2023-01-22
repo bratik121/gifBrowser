@@ -40,12 +40,14 @@ function Aside(props: any) {
 						active === true ? "show" : "hide"
 					} md:block`}
 				>
-					<img className="w-full h-full object-cover " src={logo} alt="" />
+					<a href="#input">
+						<img className="w-full h-full object-cover " src={logo} alt="" />
+					</a>
 				</div>
 			</div>
 			{/* Aside body */}
-			<div className="body text-white flex flex-col justify-between	">
-				<div className="body__top text-center flex  w-full justify-center">
+			<div className="body text-white flex flex-col justify-between items-center">
+				<div className="body__top text-center flex  w-[80%] justify-center ">
 					<h3
 						className={`text-2xl italic md:block ${
 							active === true ? "show" : "hide"
@@ -60,7 +62,8 @@ function Aside(props: any) {
 				<div
 					className={`body__bottom ${
 						active === true ? "show" : "hide"
-					} md:block`}
+					} md:block `}
+					onClick={(e) => toggleState()}
 				>
 					<Categories categories={categories} setGifNameF={props.setGifNameF} />
 				</div>
