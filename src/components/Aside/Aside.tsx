@@ -5,8 +5,8 @@ import "./aside.css";
 import Categories from "./Categories";
 import { useState } from "react";
 
-function Aside(props: any) {
-	const [active, setActive] = useState(false);
+function Aside() {
+	const [active, setActive] = useState(true);
 
 	const toggleState = () => {
 		setActive(!active);
@@ -17,20 +17,20 @@ function Aside(props: any) {
 			toggleState();
 		}
 	};
-
-	let categories = props.categories;
 	return (
 		<div
-			className={`aside bottom-0  md:w-[15%] h-full 
+			className={`aside bottom-0  md:w-[15%] h-full max-h-screen 
 			fixed text-white flex flex-col gap-3 ${
 				active === true ? "w-[50%]" : "w-[15%] "
-			}`}
+			} transition-all duration-700 ease-in-out md:opacity-100 pb-9 overflow-hidden`}
 			onMouseLeave={leave}
 		>
 			{/* aside top */}
 			<div className="top w-full flex flex-col items-center justify-center mt-5">
 				<FaBars
-					className="md:hidden"
+					className={`md:hidden ${
+						active === true ? "self-start rotate-90 translate-x-6" : ""
+					} transition-all duration-500 ease-in-out md:opacity-100`}
 					onClick={(e) => {
 						toggleState();
 					}}
@@ -38,7 +38,7 @@ function Aside(props: any) {
 				<div
 					className={`logo w-[130px] md:w-[160px] h-[60px] ${
 						active === true ? "show" : "hide"
-					} md:block`}
+					} md:block transition-all duration-500 ease-in-out md:opacity-100`}
 				>
 					<a href="#input">
 						<img className="w-full h-full object-cover " src={logo} alt="" />
@@ -46,12 +46,12 @@ function Aside(props: any) {
 				</div>
 			</div>
 			{/* Aside body */}
-			<div className="body text-white flex flex-col justify-between items-center">
+			<div className="body text-white flex flex-col justify-between items-center ">
 				<div className="body__top text-center flex  w-[80%] justify-center ">
 					<h3
 						className={`text-2xl italic md:block ${
 							active === true ? "show" : "hide"
-						}	`}
+						} transition-all duration-500 ease-in-out md:opacity-100	`}
 					>
 						Trending
 					</h3>
@@ -62,10 +62,10 @@ function Aside(props: any) {
 				<div
 					className={`body__bottom ${
 						active === true ? "show" : "hide"
-					} md:block `}
+					} md:block transition-all duration-500 ease-in-out md:opacity-100`}
 					onClick={(e) => toggleState()}
 				>
-					<Categories categories={categories} setGifNameF={props.setGifNameF} />
+					<Categories />
 				</div>
 			</div>
 		</div>

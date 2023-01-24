@@ -1,10 +1,21 @@
-import { useState, useEffect, Suspense, lazy } from "react";
+import { useState, useEffect, useLayoutEffect, createContext } from "react";
 import Browser from "./components/Browser/Browser";
 import "./styles/App.css";
 import getGfifs, { getCategories } from "./data/fetch";
 import gif from "./data/gifs";
 import Gifs from "./components/Gifs/Gifs";
 import Aside from "./components/Aside/Aside";
+
+type context = {
+	categories: string[];
+	gifName: string;
+	gifList: gif[];
+	limit: number;
+	setLimit: (newLimit: number) => void;
+	setGifNameF: (newGifName: string) => void;
+};
+
+export const GifsContext = createContext({} as context);
 
 function App() {
 	const [gifList, setGifList] = useState<gif[]>([]);
@@ -35,7 +46,8 @@ function App() {
 	}, [gifName]);
 
 	/*Categories fetch */
-	useEffect(() => {
+
+	useLayoutEffect(() => {
 		getCategories(setCategoriesFun);
 	}, []);
 
@@ -49,15 +61,21 @@ function App() {
 	return (
 		<div className="App">
 			<div className="h-screen flex-row flex gap-7 md:justify-between">
-				<Aside categories={categories} setGifNameF={setGifNameF} />
-				<div className="main w-[85%] flex flex-col items-center ml-[15%] gap-8 pt-6">
-					<Browser setGifNameF={setGifNameF} />
-					<div className="w-[70%] flex justify-center md:justify-start box-border">
-						<h3 className="text-white text-3xl inline capitalize">{gifName}</h3>
+				<GifsContext.Provider
+					value={{ categories, setGifNameF, gifName, gifList, setLimit, limit }}
+				>
+					<Aside />
+					<div className="main w-[85%] flex flex-col items-center ml-[15%] gap-8 pt-6">
+						<Browser />
+						<div className="w-[70%] flex justify-center md:justify-start box-border">
+							<h3 className="text-white text-3xl inline capitalize">
+								{gifName}
+							</h3>
+						</div>
+						{/* <Cgifs gifList={gifList} /> */}
+						<Gifs />
 					</div>
-					{/* <Cgifs gifList={gifList} /> */}
-					<Gifs gifList={gifList} setLimit={setLimit} limit={limit} />
-				</div>
+				</GifsContext.Provider>
 			</div>
 		</div>
 	);

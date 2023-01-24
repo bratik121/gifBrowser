@@ -1,8 +1,9 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useContext } from "react";
 import "./gifs.css";
 import gif from "../../data/gifs";
 import Gif from "../../elements/Gif";
 import { motion } from "framer-motion";
+import { GifsContext } from "../../App";
 
 const container = {
 	hidden: { opacity: 0 },
@@ -20,18 +21,19 @@ const gifVariant = {
 	show: { y: 0, opacity: 1 },
 };
 
-function Gifs(props: any) {
+function Gifs() {
+	const { limit, setLimit, gifList } = useContext(GifsContext);
 	const observer = new IntersectionObserver(
 		(entries, observer) => {
 			if (entries[0].isIntersecting) {
-				if (props.limit < 48) {
+				if (limit < 48) {
 					let newLimit: number;
-					if (props.limit < 40) {
-						newLimit = props.limit + 10;
+					if (limit < 40) {
+						newLimit = limit + 10;
 					} else {
-						newLimit = props.limit + 8;
+						newLimit = limit + 8;
 					}
-					props.setLimit(newLimit);
+					setLimit(newLimit);
 				}
 			}
 		},
@@ -45,24 +47,24 @@ function Gifs(props: any) {
 		observer.observe(gifContainer.current.lastChild as Element);
 	};
 	useEffect(() => {
-		if (props.gifList.length > 0) {
+		if (gifList.length > 0) {
 			findLastGif();
 		}
 
 		return () => {
 			observer.disconnect();
 		};
-	}, [props.gifList]);
+	}, [gifList]);
 
 	return (
 		<motion.div
-			className="gifs-container grid grid-cols-1 md:grid-cols-4 gap-5 pb-6"
+			className="gifs-container grid grid-cols-1 md:grid-cols-4 gap-5  pb-6"
 			variants={container}
 			initial="hidden"
 			animate="show"
 			ref={gifContainer}
 		>
-			{props.gifList.map((gif: gif, index: number) => {
+			{gifList.map((gif: gif, index: number) => {
 				return (
 					<motion.div variants={gifVariant} key={index}>
 						<Gif gif={gif} />

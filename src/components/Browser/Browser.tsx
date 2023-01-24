@@ -1,13 +1,15 @@
 import Button from "../../elements/Button";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { notEmpty } from "../../data/validations";
+import { GifsContext } from "../../App";
 import Input from "../../elements/Input";
-function Browser(props: any) {
+function Browser() {
 	const gif_input = useRef<HTMLInputElement>(null);
 	const [input, setInput] = useState("");
+	const { setGifNameF } = useContext(GifsContext);
 	const searchGif = () => {
 		if (notEmpty(input)) {
-			props.setGifNameF(input);
+			setGifNameF(input);
 			gif_input.current!.value = "";
 		}
 	};
