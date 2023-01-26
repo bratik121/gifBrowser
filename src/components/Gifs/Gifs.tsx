@@ -58,7 +58,7 @@ function Gifs() {
 
 	return (
 		<motion.div
-			className="gifs-container grid grid-cols-1 md:grid-cols-4 gap-5  pb-6"
+			className="gifs-container grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-5  pb-6 w-[80%]"
 			variants={container}
 			initial="hidden"
 			animate="show"

@@ -5,6 +5,7 @@
 }
 .img-overlay:hover > * {
 	transform: translateY(0px);
+	display: flex;
 }
 .viewLink {
 	background-image: url("../../assets/eye-white.svg");
