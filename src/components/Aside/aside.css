@@ -30,11 +30,22 @@
 }
 
 .no-scrollbar::-webkit-scrollbar {
-	display: none;
+	display: block;
+	opacity: 0;
+	width: 8px;
+	background-color: #313f6b;
+	border-radius: 0 8px 8px 0;
+	transition: ease-in-out all 0.5s;
+}
+
+.no-scrollbar::-webkit-scrollbar-thumb {
+	background-color: rgba(119, 150, 242, 1);
+	border-radius: 0 8px 8px 0;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-	-ms-overflow-style: none; /* IE and Edge */
-	scrollbar-width: none; /* Firefox */
+	scrollbar-width: thin; /* Firefox */
+	scrollbar-color: rgba(119, 150, 242, 1) #313f6b; /* Firefox */
+	overflow-x: hidden;
 }

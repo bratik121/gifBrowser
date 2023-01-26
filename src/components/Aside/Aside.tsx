@@ -19,7 +19,7 @@ function Aside() {
 	};
 	return (
 		<div
-			className={`aside bottom-0  md:w-[15%] h-full max-h-screen 
+			className={`aside bottom-0  md:w-[15%] h-full  
 			fixed text-white flex flex-col gap-3 ${
 				active === true ? "w-[50%]" : "w-[15%] "
 			} transition-all duration-700 ease-in-out md:opacity-100 pb-9 overflow-hidden`}
