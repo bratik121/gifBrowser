@@ -23,7 +23,7 @@ function Gif(props: any) {
                justify-around overflow-hidden"
 			>
 				{/* Overlay Tittle */}
-				<div className="overlay-tittle font-bold text-xl text-center w-[80%]">
+				<div className="overlay-tittle font-bold text-xl text-center justify-center w-[80%]">
 					{notGif(props.gif.title)}
 				</div>
 				{/* Overlay Buttons */}
