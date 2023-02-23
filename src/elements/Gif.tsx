@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { notGif } from "../data/validations";
 
 function Gif(props: any) {
@@ -52,4 +52,6 @@ function Gif(props: any) {
 	);
 }
 
-export default Gif;
+export default memo(Gif, (prevProps, nextProps) => {
+	return prevProps.gif.url === nextProps.gif.url;
+});

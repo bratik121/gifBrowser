@@ -1,5 +1,6 @@
 import "./elements.css";
 import { FaSearch } from "react-icons/fa";
+import { memo } from "react";
 function Button(props: any) {
 	const rippleEfect = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		let btn = e.target as HTMLButtonElement;
@@ -28,4 +29,4 @@ function Button(props: any) {
 	);
 }
 
-export default Button;
+export default memo(Button);
