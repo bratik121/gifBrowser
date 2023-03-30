@@ -49,3 +49,48 @@
 	scrollbar-color: rgba(119, 150, 242, 1) #313f6b; /* Firefox */
 	overflow-x: hidden;
 }
+
+.btn-burger {
+	width: 1.5rem;
+	height: 0.15rem;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+	transition: all 0.5s ease-in-out;
+	margin-bottom: 10px;
+}
+
+.btn-burger::before,
+.btn-burger::after {
+	content: "";
+	position: absolute;
+	width: 1.5rem;
+	height: 0.15rem;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+	transition: all 0.5s ease-in-out;
+}
+
+.btn-burger::before {
+	transform: translateY(-8px);
+}
+
+.btn-burger::after {
+	transform: translateY(8px);
+}
+
+/*Animtation uf burger*/
+
+.btn-burger.open {
+	transform: translateX(-50px);
+	box-shadow: none;
+}
+
+.btn-burger.open::after {
+	transform: rotate(45deg) translate(35px, -35px);
+}
+
+.btn-burger.open::before {
+	transform: rotate(-45deg) translate(35px, 35px);
+}

@@ -1,12 +1,13 @@
 import logo from "../../assets/Logo.png";
 import fire from "../../assets/RedFireEmoji.gif";
+import AsideButton from "./AsideButton";
 import { FaBars } from "react-icons/fa";
 import "./aside.css";
 import Categories from "./Categories";
 import { useState } from "react";
 
 function Aside() {
-	const [active, setActive] = useState(true);
+	const [active, setActive] = useState(false);
 
 	const toggleState = () => {
 		setActive(!active);
@@ -27,14 +28,15 @@ function Aside() {
 		>
 			{/* aside top */}
 			<div className="top w-full flex flex-col items-center justify-center mt-5">
-				<FaBars
+				{/* <FaBars
 					className={`md:hidden ${
 						active === true ? "self-start rotate-90 translate-x-6" : ""
 					} transition-all duration-500 ease-in-out md:opacity-100`}
 					onClick={(e) => {
 						toggleState();
-					}}
-				/>
+					}} 
+				/>*/}
+				<AsideButton active={active} toggleState={toggleState} />
 				<div
 					className={`logo w-[130px] md:w-[160px] h-[60px] ${
 						active === true ? "show" : "hide"
